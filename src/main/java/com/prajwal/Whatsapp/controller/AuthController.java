@@ -27,7 +27,7 @@ public class AuthController {
     public ResponseEntity<AuthResponse> createUserHandler(@RequestBody User user) throws UserException {
 
         User newuser=authService.createUser(user);
-
+        //  should pass user.getEmail() and user.getPssword()
         Authentication authentication=new UsernamePasswordAuthenticationToken(newuser.getEmail(),newuser.getPassword());
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
